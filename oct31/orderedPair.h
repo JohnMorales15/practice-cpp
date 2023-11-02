@@ -1,26 +1,32 @@
-//class orderedPair.h
+#ifndef ORDEREDPAIR_H
+#define ORDEREDPAIR_H
+#include <iostream>
+using std::istream;
 
 class orderedPair
 {
-    friend orderedPair operator * (const orderedPair& first, const orderedPair&
-        second); // by default friend function is public
-    friend orderedPair operator - (const orderedPair& first, const orderedPair&
-        second);
+	friend orderedPair operator*(const orderedPair &first, const orderedPair &second);
+	friend orderedPair operator/(const orderedPair &first, const orderedPair &second);
+	friend istream &operator>>(istream &input, orderedPair &);
 
-    public:
-        orderedPair();
-        orderedPair(int, int);
+public:
+	orderedPair();
+	orderedPair(int, int);
 
-        orderedPair(orderedPair&);
+	orderedPair(orderedPair &);
 
-        void setx(int);
-        void sety(int);
+	void setx(int);
 
-        int getx() const;
-        int gety() const;
-        orderedPair operator++(orderedPair);
+	void sety(int);
 
-    private:
-        int xval{ 0 };
-        int yval{ 0 };
+	int getx() const;
+	int gety() const;
+
+	void operator++();
+	// orderedPair operator-(orderedPair&, orderedPair&);
+
+private:
+	int xval{0};
+	int yval{0};
 };
+#endif

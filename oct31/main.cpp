@@ -2,24 +2,46 @@
 //orderedPair.cpp
 //requires opfuncs.h/.cpp
 #include "orderedPair.h"
+#include "opfuncs.h"
 #include <iostream>
-    using std::cout;
-    using std::cin;
-    using std::endl;
+	using std::cout;
+	using std::cin;
+	using std::endl;
+	using std::ostream;
+
 #include <array>
-    using std::array;
+	using std::array;
 
-// ostream operator << (ostream output, );
+	int main()
+	{
+		orderedPair temp(3, 5);
+		cout << "Using a regular cout statement\n";
+		cout << '(' << temp.getx() << ", " << temp.gety() << ')' << endl;
 
-int main()
-{
-    orderedPair temp(2, 4);
+		cout << "Using overloaded << operator\n";
+		cout << temp << endl;
 
-    cout << temp.getx() << temp.gety();
+		orderedPair first(4, 8);
+		orderedPair second(4, 3);
 
-    // ++temp;
+		cout << first << " * " << second << " = " << first * second << endl;
 
-    cout << temp.getx() << temp.gety();
+		orderedPair third;
+		cout << "Enter your ordered pair as x y :";
+		cin >> third;
+		cout << endl;
+		cout << "third = " << third << endl;
 
-    return 0;
-};
+		try
+		{
+			temp = first / third;
+		}
+		catch (const char* err)
+		{
+			cout << "Exception occurred" << endl << err << endl;;
+			//exit;
+		}
+		cout << "temp = first / third = \n" << temp << " = " << first << " / " << third << endl;
+
+	};
+

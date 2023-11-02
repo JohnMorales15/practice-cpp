@@ -78,6 +78,8 @@
 			orderedPair temp;
 			temp.xval = first.xval / second.xval;
 			temp.yval = first.yval / second.yval;
+
+            
 			return temp;
 		}
 
